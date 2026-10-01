@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --ink-black: #1a1816;
+    --ink-gray: #4a4641;
+    --ink-light: #8c8577;
+    --seal-red: #9e2a2b;
+    --seal-dark: #7a1c1d;
+    --seal-gold: #c5a059;
+    --paper-bg: #f4efe6;
+    --paper-dark: #e8e0d0;
+  }
+
+  body {
+    font-family: "Noto Serif TC", "Songti SC", "STKaiti", "KaiTi", serif;
+  }
+}
+
+.font-calligraphy {
+  font-family: "Ma Shan Zheng", "STKaiti", "KaiTi", cursive, serif;
+}
+
+.font-xuan {
+  font-family: "ZCOOL XiaoWei", "Noto Serif TC", "Songti SC", serif;
+}
+
+/* Paper grain overlay texture */
+.paper-texture {
+  background-color: #f4efe6;
+  background-image: 
+    radial-gradient(ellipse at 50% 15%, rgba(255, 255, 255, 0.7) 0%, transparent 70%),
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(40, 30, 20, 0.015) 2px, rgba(40, 30, 20, 0.015) 4px);
+}
+
+.dark-paper-texture {
+  background-color: #1e1c19;
+  background-image: 
+    radial-gradient(ellipse at 50% 10%, rgba(60, 50, 40, 0.4) 0%, transparent 60%),
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.2) 2px, rgba(0, 0, 0, 0.2) 4px);
+}
+
+/* Custom ink scroll scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(210, 200, 185, 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(120, 110, 95, 0.6);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(80, 70, 60, 0.8);
+}
+
+/* Animations */
+@keyframes ink-pulse {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.06) rotate(180deg);
+    opacity: 0.7;
+  }
+}
+
+@keyframes ink-spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes ink-float {
+  0% {
+    transform: translateY(0px) scale(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-55px) scale(1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes slash-anim {
+  0% {
+    transform: scale(0.4) rotate(-35deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(15deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+.animate-ink-pulse {
+  animation: ink-pulse 6s infinite ease-in-out;
+}
+
+.animate-spin-slow {
+  animation: ink-spin-slow 24s infinite linear;
+}
+
+.floating-ink-text {
+  animation: ink-float 0.85s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.slash-effect {
+  animation: slash-anim 0.4s ease-out forwards;
+}
+
+/* Meridian Circulation Animations */
+@keyframes meridian-stream {
+  0% {
+    stroke-dashoffset: 120;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes meridian-node-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 4px rgba(197, 160, 89, 0.4), inset 0 0 2px rgba(255, 255, 255, 0.6);
+  }
+  50% {
+    transform: scale(1.22);
+    box-shadow: 0 0 14px rgba(200, 75, 49, 0.9), 0 0 22px rgba(197, 160, 89, 0.7);
+  }
+}
+
+@keyframes qi-flow-glow {
+  0%, 100% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 1px rgba(197, 160, 89, 0.5));
+  }
+  50% {
+    opacity: 0.95;
+    filter: drop-shadow(0 0 6px rgba(197, 160, 89, 0.9));
+  }
+}
+
+.animate-meridian-stream {
+  stroke-dasharray: 8 6;
+  animation: meridian-stream 1.6s linear infinite;
+}
+
+.animate-meridian-node {
+  animation: meridian-node-pulse 2.2s infinite ease-in-out;
+}
+
+.animate-qi-glow {
+  animation: qi-flow-glow 3s infinite ease-in-out;
+}
+

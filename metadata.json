@@ -1,0 +1,6 @@
+{
+  "name": "一念逍遙 - 水墨放置修仙",
+  "description": "水墨宣紙美學、法體雙修、洞府吐納、秘境歷練、丹房煉丹、靈獸同行的放置修真世界。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
